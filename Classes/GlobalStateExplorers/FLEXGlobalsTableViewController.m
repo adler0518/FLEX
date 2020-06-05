@@ -25,6 +25,7 @@ static __weak UIWindow *s_applicationWindow = nil;
 
 typedef NS_ENUM(NSUInteger, FLEXGlobalsRow) {
     FLEXGlobalsRowNetworkHistory,
+    FLEXGlobalsRowCustomLog,
     FLEXGlobalsRowSystemLog,
     FLEXGlobalsRowLiveObjects,
     FLEXGlobalsRowAddressInspector,
@@ -240,6 +241,15 @@ typedef NS_ENUM(NSUInteger, FLEXGlobalsRow) {
             case FLEXGlobalsRowSystemLog:
                 titleFuture = ^{
                     return @"⚠️  System Log";
+                };
+                viewControllerFuture = ^{
+                    return [[FLEXSystemLogTableViewController alloc] init];
+                };
+                break;
+                
+            case FLEXGlobalsRowCustomLog:
+                titleFuture = ^{
+                    return @"⚠️  Custom Log";
                 };
                 viewControllerFuture = ^{
                     return [[FLEXSystemLogTableViewController alloc] init];
